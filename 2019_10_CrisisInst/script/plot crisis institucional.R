@@ -59,18 +59,18 @@ party <- tibble(party = c("PSOE", "PP", "PSOE"),
 
 # annotations
 annotations <- tibble(label = c("Situación\neconómica\nmala o muy mala", "Situación\npolítica\nmala o muy mala", 
-                                "Tasa de\ndesempleo", "Generales\n2011", "Lehman\nBrothers",
+                                "Tasa de\ndesempleo", "Generales\n2011", "Generales\n2008",
                                 "Europeas\n2014", "Generales\n2015", "Generales\n2019"),
-                      x = parse_date(c("01/08/2007", "01/04/2005", "01/01/2007", "01/06/2011", 
-                                       "01/04/2008", "01/01/2014", "01/07/2015", "01/11/2018"), format = "%d/%m/%Y"),
-                      y = c(65, 40, 16, 97, 97, 97, 97, 97),
-                      col = c("burlywood3", "coral3", "darkgoldenrod3", "gray50", "gray50", "gray50", "gray50", "gray50")
+                      x = parse_date(c("15/10/2007", "01/04/2005", "01/01/2007", "01/06/2011", 
+                                       "01/10/2007", "01/01/2014", "01/07/2015", "01/11/2018"), format = "%d/%m/%Y"),
+                      col = c("burlywood3", "coral3", "darkgoldenrod3", "gray50", "gray50", "gray50", "gray50", "gray50"),
+                      y = c(63, 40, 16, 97, 97, 97, 97, 97)
 )
 
 # arrows to fit some annotations (need two bc curvature cannot be in aesthetics)
-curves <- tibble(x = parse_date(c("01/08/2007", "01/01/2005"), format = "%d/%m/%Y"), 
-                 y = c(60, 35), 
-                 xend = parse_date(c("01/03/2008", "07/07/2005"), format = "%d/%m/%Y"), 
+curves <- tibble(x = parse_date(c("01/11/2007", "01/03/2005"), format = "%d/%m/%Y"), 
+                 y = c(58, 35), 
+                 xend = parse_date(c("15/04/2008", "01/08/2005"), format = "%d/%m/%Y"), 
                  yend = c(53, 30))
 
 curves2 <- tibble(x = parse_date( "01/06/2007", format = "%d/%m/%Y"), 
@@ -80,9 +80,9 @@ curves2 <- tibble(x = parse_date( "01/06/2007", format = "%d/%m/%Y"),
 
 
 # segments for historical events
-segments <-  tibble(x = parse_date(c("01/09/2008", "01/06/2014", "20/12/2015", "28/04/2019", "20/11/2011"), format = "%d/%m/%Y"), 
+segments <-  tibble(x = parse_date(c("01/06/2014", "20/12/2015", "28/04/2019", "20/11/2011", "12/03/2008"), format = "%d/%m/%Y"), 
                     y = 0, 
-                    xend = parse_date(c("01/09/2008", "01/06/2014", "20/12/2015", "28/04/2019", "20/11/2011"), format = "%d/%m/%Y"), 
+                    xend = parse_date(c("01/06/2014", "20/12/2015", "28/04/2019", "20/11/2011", "12/03/2008"), format = "%d/%m/%Y"), 
                     yend = 101, 
                     col = "gray70")
 
