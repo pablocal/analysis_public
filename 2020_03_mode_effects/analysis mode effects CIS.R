@@ -18,6 +18,8 @@ library(ggrepel)
 font_add_google("Roboto Condensed", "Roboto_c")
 font_add_google("Roboto", "Roboto")
 
+showtext_auto()
+
 theme_reg <- theme(plot.title = element_text(family = "Roboto_c", hjust = -.01, face = "bold"),
                      plot.subtitle = element_text(family = "Roboto_c", hjust = -.01),
                      plot.caption = element_text(family = "Roboto_c", color = "grey40", size = 8),
@@ -33,7 +35,7 @@ theme_reg <- theme(plot.title = element_text(family = "Roboto_c", hjust = -.01, 
                      strip.background = element_rect(fill = "black"),
                      strip.text = element_text(color = "white", family = "Roboto_c"))
 # 1. Data -----------------------------------------------------------------
-d <- haven::read_sav("data/3271.sav")
+d <- haven::read_sav("2020_03_mode_effects/data/3271.sav")
 d <- d %>% 
   mutate(EDAD = as.integer(EDAD)) %>% 
   haven::as_factor() %>% 
@@ -83,9 +85,12 @@ export_table <- d %>%
 
 
 # 4. get data with feb-apr ------------------------------------------------
-d <- read_csv("data/export.csv") %>% 
-  mutate(strata = ifelse(var %in% c("Sexo", "Edad", "Tamaño de municipio"), "Estratos/cuotas", "Otras variables (sociodemográficas)"))
+d <- read_csv("2020_03_mode_effects/data/export.csv") %>% 
+  mutate(strata = ifelse(var %in% c("Sexo", "Edad", "Tamaño de municipio"), "Variables estratos/cuotas", "Otras variables"),
+         strata = fct_relevel(strata, "Variables estratos/cuotas"))
 
+
+# Plot average dev of vars ------------------------------------------------
 d_avg_bias <- d %>% 
   mutate(jan_feb = abs(jan-feb),
          feb_mar = abs(feb-mar),
@@ -97,25 +102,45 @@ d_avg_bias <- d %>%
   ungroup() %>% 
   gather("month", "avg_bias", jan_feb:mar_apr) %>% 
   mutate(month = fct_relevel(month, "jan_feb", "feb_mar"),
-         month_label = recode(month, "jan_feb" = "Ene. → Feb.",
-                              "feb_mar" = "Feb. → Mar.",
-                              "mar_apr" = "Mar. → Abr." ),
-         col = ifelse(var %in% c("Estudios", "Escala ideológica", "Clase (subjetiva)"), 1, 0))
+         month_label = recode(month, "jan_feb" = 'Ene. ~ Feb.',
+                              "feb_mar" = "Feb.~ Mar.",
+                              "mar_apr" = "Mar. ~ Abr." ),
+         col = ifelse(var %in% c("Estudios", "Escala ideológica", "Clase (subjetiva)"), 1, 0)) %>% 
+  group_by(strata) %>% 
+  mutate(rank = as_factor(rank(var))) %>% 
+  ungroup()
 
-ggplot(d_avg_bias, aes(x = month_label, y = avg_bias, group = var, col = col)) + 
-  geom_point( alpha = .7, col = "gray20") +
-  geom_line(size = .15) +
-  geom_text(data = filter(d_avg_bias, month == "mar_apr"), aes(x = 3.5, y = avg_bias, label = var), size = 3.5) +
-   labs(title = "Variación media de las estimaciones de un mes a otro",
-       subtitle = "Variables",
+rect <- tibble(xmin = c(0, 2.5, 3.51),
+               xmax = c(2.49, 3.5, 4.2),
+               ymin = c(6.75, 6.75, 6.75),
+               ymax = c(7.25, 7.25, 7.25),
+               fill = c("gray5", "gray25", "white"),
+               alpha = .3)
+
+
+ggplot() + 
+  geom_point(data = d_avg_bias, aes(x = month_label, y = avg_bias, group = var, col = rank), alpha = .7) +
+  geom_line(data = d_avg_bias, aes(x = month_label, y = avg_bias, group = var, col = rank)) +
+  geom_text(data = filter(d_avg_bias, month == "mar_apr"), mapping = aes(x = 3.1, y = avg_bias, label = var, col = rank), position = position_jitter(height=.1, width = 0), size = 2.5, hjust = 0, family = "Roboto_c") +
+  geom_rect(data = rect, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = fill, alpha = alpha), col = "white") +
+  annotate(geom = "text", label = "Presencial", y = 7, x = 1.5, size = 3, fontface = "bold", family = "Roboto_c", col = "white") +
+  annotate(geom = "text", label = "Pres. ~ Telef.", y = 7, x = 3, size = 3, fontface = "bold", family = "Roboto_c", col = "white") +
+  scale_color_brewer(palette = "Dark2") +
+  scale_fill_identity() +
+   labs(title = "Variación de un mes a otro de las variables de clasificación",
+       subtitle = "Barómetros CIS Ene.-Abr.",
        x = "",
-       y = "Variación media (%)") +
+       y = "Variación media (%)",
+       caption = "@pablocalv con datos CIS") +
   facet_wrap( ~ strata) +
   theme_reg
 
+ggsave("2020_03_mode_effects/plot_variables.pdf")
+
+# Plot changes in wording or card -----------------------------------------
 d_card <- d_avg_bias %>% 
   filter(month == "mar_apr") %>% 
-  mutate(card_wording = "Uso de tarjeta en F2F")
+  mutate(card_wording = "Uso de tarjeta en modo presencial")
 
 d_card_wording <- d_avg_bias %>% 
   filter(month == "mar_apr") %>% 
@@ -126,12 +151,20 @@ d_card_wording <- d_avg_bias %>%
          card = fct_relevel(card, "Sí"))
 
 ggplot(d_card_wording, aes(x = factor(card), y = avg_bias, fill = card)) +
-  geom_boxplot() +
+  geom_boxplot(alpha= .4) +
   geom_dotplot(binaxis = "y", stackdir = "center", fill = "red") +
+  scale_fill_brewer(palette = "Dark2") +
   facet_wrap( ~ card_wording) +
-  theme_reg
+  labs(title = "Algunos cabios acentúan las diferencias entre modos de adminsitración", 
+       subtitle = "Barómetros CIS Marzo-Abril",
+       x = "",
+       y = "Variación media (%)",
+       caption = "@pablocalv con datos CIS") + 
+  theme_reg 
 
+ggsave("2020_03_mode_effects/plot_changes.pdf")
 
+# Plot three variables ----------------------------------------------------
 d_vars <- d %>% 
   filter(var %in% c("Estudios", "Escala ideológica", "Clase (subjetiva)")) %>% 
   gather("month", "per", jan:apr) %>% 
@@ -155,7 +188,6 @@ rect <- tibble(xmin = c(0, 3.5, 4.51),
                fill = c("gray5", "gray25", "white"),
                alpha = .3)
 
- 
 ggplot() +
   geom_segment(data = d_vars, aes(x = month, xend = month, y = y, yend = yend), col = "gray70", size = .03) +
   geom_line(data = d_vars, aes(x = month, y = per, group = val, col = rank)) +
@@ -175,4 +207,4 @@ ggplot() +
        caption = "@pablocalv con datos CIS") + 
   theme_reg
 
-ggsave("plot_vars.png")
+ggsave("2020_03_mode_effects/plot_vars.pdf")
