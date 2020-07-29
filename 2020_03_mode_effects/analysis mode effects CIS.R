@@ -94,17 +94,20 @@ d <- read_csv("2020_03_mode_effects/data/export.csv") %>%
 d_avg_bias <- d %>% 
   mutate(jan_feb = abs(jan-feb),
          feb_mar = abs(feb-mar),
-         mar_apr = abs(mar-apr)) %>% 
+         mar_apr = abs(mar-apr),
+         apr_may = abs(apr-may)) %>% 
   group_by(strata, var, card, wording_change) %>% 
   summarise(jan_feb = sum(jan_feb)/n(),
             feb_mar = sum(feb_mar)/n(),
-            mar_apr = sum(mar_apr)/n()) %>% 
+            mar_apr = sum(mar_apr)/n(),
+            apr_may = sum(apr_may)/n()) %>% 
   ungroup() %>% 
-  gather("month", "avg_bias", jan_feb:mar_apr) %>% 
-  mutate(month = fct_relevel(month, "jan_feb", "feb_mar"),
+  gather("month", "avg_bias", jan_feb:apr_may) %>% 
+  mutate(month = fct_relevel(month, "jan_feb", "feb_mar", "mar_apr"),
          month_label = recode(month, "jan_feb" = 'Ene. ~ Feb.',
                               "feb_mar" = "Feb.~ Mar.",
-                              "mar_apr" = "Mar. ~ Abr." ),
+                              "mar_apr" = "Mar. ~ Abr.",
+                              "apr_mar" = "Abr. ~ May."),
          col = ifelse(var %in% c("Estudios", "Escala ideológica", "Clase (subjetiva)"), 1, 0)) %>% 
   group_by(strata) %>% 
   mutate(rank = as_factor(rank(var))) %>% 
@@ -167,12 +170,13 @@ ggsave("2020_03_mode_effects/plot_changes.pdf")
 # Plot three variables ----------------------------------------------------
 d_vars <- d %>% 
   filter(var %in% c("Estudios", "Escala ideológica", "Clase (subjetiva)")) %>% 
-  gather("month", "per", jan:apr) %>% 
+  gather("month", "per", jan:may) %>% 
   mutate(month = recode(month, "jan" = "Ene.",
                         "feb" = "Feb.",
                         "mar" = "Mar.",
-                        "apr" = "Abr."),
-         month = fct_relevel(month, "Ene.", "Feb.", "Mar.")) %>% 
+                        "apr" = "Abr.",
+                        "may" = "May."),
+         month = fct_relevel(month, "Ene.", "Feb.", "Mar.", "Abr.")) %>% 
   group_by(var, month) %>% 
   mutate(y = min(per),
          yend = max(per)) %>% 

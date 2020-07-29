@@ -1,65 +1,65 @@
-var,wording_change,card,val,jan,feb,mar,apr
-Sexo,0,0,Hombre,48.28,48.2,48.2,48.5
-Sexo,0,0,Mujer,51.72,51.8,51.8,51.5
-Edad,0,0,65 o más años,24.75,25.2,24.8,24.7
-Edad,0,0,De 18 a 24 años,7.37,7.6,8,7.9
-Edad,0,0,De 25 a 34 años,13.14,13,12.6,12.7
-Edad,0,0,De 35 a 44 años,18.98,19,18.9,18.8
-Edad,0,0,De 45 a 54 años,18.88,19,18.9,19.6
-Edad,0,0,De 55 a 64 años,16.87,16.3,16.9,16.4
-Tamaño de municipio,0,0,Menos o igual a 2.000 habitantes,7.27,6.66215759215421,7.15746421267894,6
-Tamaño de municipio,0,0,2.001 a 10.000 habitantes,14,14.7446736557322,15.5674846625767,14.5333333333333
-Tamaño de municipio,0,0,10.001 a 50.000 habitantes,26.97,26.6824484274603,25.3067484662577,26.3
-Tamaño de municipio,0,0,50.001 a 100.000 habitantes,11.95,11.8701386540413,12.0143149284254,12.5333333333333
-Tamaño de municipio,0,0,100.001 a 400.000 habitantes,22.26,22.5904633074062,22.4693251533742,22.9666666666667
-Tamaño de municipio,0,0,400.001 a 1.000.000 habitantes,7.31,7.50760906323977,7.56646216768916,7.83333333333333
-Tamaño de municipio,0,0,Más de 1.000.000 habitantes,10.24,9.94250929996618,9.91820040899796,9.83333333333333
-Recuerdo de voto,0,1,PP,13.9,13.9,13.8,12.8
-Recuerdo de voto,0,1,PSOE,26.32,27,27,25.3
-Recuerdo de voto,0,1,Ciudadanos,5.05,5,5.5,7
-Recuerdo de voto,0,1,VOX,6.49,7.5,6,6.7
-Recuerdo de voto,0,1,Unidas Podemos,8.4,8,7.7,7.3
-Recuerdo de voto,0,1,No votó,15.33,15.8,14.8,11.5
-Estudios,1,0,Sin estudios,4.44,7.1,6,1.5
-Estudios,1,0,Primaria,16.46,14.2,12.8,8.5
-Estudios,1,0,Secundaria (1ª),21.41,23.3,23.2,12.8
-Estudios,1,0,Secundaria (2ª),13.93,13,14,13.7
-Estudios,1,0,F.P.,18.54,19.6,20.9,22.1
-Estudios,1,0,Superiores,25.13,22.6,22.8,40.6
-Religión,0,0,Católico/a practicante,20.45,20.4,19.5,19.5
-Religión,0,0,Católico/a no practicante,46.67,46.6,47.3,41.7
-Religión,0,0,Creyente de otra religión,1.67,2.9,2.6,1.8
-Religión,0,0,Agnóstico/a,7.1,6.9,7.1,11.1
-Religión,0,0,"Indiferente, no creyente",10.62,9.2,9.6,11.5
-Religión,0,0,Ateo/a,12.56,12.2,12.6,13.5
-Estado civil,0,0,Casado/a,54.42,52.6,54.2,56
-Estado civil,0,0,Soltero/a,32.06,31.2,31.4,30.6
-Estado civil,0,0,Viudo/a,6.49,7.4,7.2,6.2
-Estado civil,0,0,Separado/a,2.42,2.7,2.4,1.6
-Estado civil,0,0,Divorciado/a,4.51,5.7,4.5,5.1
-Actividad,0,1,Trabaja,47.8,48,47,51.1
-Actividad,0,1,Jubilado/a o pensionista (anteriormente ha trabajado),24.41,25.8,24.7,24.5
-Actividad,0,1,Pensionista (anteriormente no ha trabajado),3.35,3.3,2.7,1.6
-Actividad,0,1,Parado/a y ha trabajado antes,13.28,12.3,13.8,12.1
-Actividad,0,1,Parado/a y busca su primer empleo,0.31,0.4,0.7,0.2
-Actividad,0,1,Estudiante,4.34,4.3,4.9,5.3
-Actividad,0,1,Trabajo doméstico no remunerado,5.74,5,5.4,3.4
-Actividad,0,1,Otra situación,0.79,0.9,0.6,1.4
-Clase (subjetiva),0,0,Clase media alta,3.99,3.7,4,11.3
-Clase (subjetiva),0,0,Clase media,45.82,45,44.8,45.3
-Clase (subjetiva),0,0,Clase media-baja,20.72,17.3,17.6,22.7
-Clase (subjetiva),0,0,Clase trabajadora,20.18,20.9,21.8,10.4
-Clase (subjetiva),0,0,Clase baja,4.2,6.9,6.1,6.3
-Ocupación,1,1,Directores/as y gerentes,5.26,4.5,4.8,8.8
-Ocupación,1,1,Profesionales científicos/as e intelectuales,10.07,7.8,8.4,15.1
-Ocupación,1,1,Técnicos/as y profesionales de nivel medio,18.16,17.9,16.6,24
-Ocupación,1,1,Personal de apoyo administrativo,7.92,7.8,9.6,11.8
-Ocupación,1,1,Trabajadores/as de los servicios y vendedores/as de comercios y mercados,17.04,17.8,17.8,14.3
-Ocupación,1,1,"Agricultores/as y trabajadores/as cualificados/as agropecuarios/as, forestales y pesqueros/as",5.91,6.3,6,3.1
-Ocupación,1,1,"Oficiales/as, operarios/as, artesanos/as de artes mecánicas y de otros oficios",13.04,11.9,12.6,6.6
-Ocupación,1,1,Operadores/as de instalaciones y máquinas y ensambladores/as,3.65,4.3,3.4,3.4
-Ocupación,1,1,Ocupaciones elementales,15.26,17.2,16.2,8
-Ocupación,1,1,Ocupaciones militares y cuerpos policiales,1.57,1.5,1.5,1.2
-Escala ideológica,1,1,Izq. (1-4),44.25,42,40.9,38.9
-Escala ideológica,1,1,Centro (5-6),25.23,26.5,28,40.9
-Escala ideológica,1,1,Der. (7-10),15.3,16.4,15.6,16.6
+var,wording_change,card,val,jan,feb,mar,apr,may
+Sexo,0,0,Hombre,48.28,48.2,48.2,48.5,48.2
+Sexo,0,0,Mujer,51.72,51.8,51.8,51.5,51.8
+Edad,0,0,65 o más años,24.75,25.2,24.8,24.7,24.9
+Edad,0,0,De 18 a 24 años,7.37,7.6,8,7.9,7.7
+Edad,0,0,De 25 a 34 años,13.14,13,12.6,12.7,12.6
+Edad,0,0,De 35 a 44 años,18.98,19,18.9,18.8,18.7
+Edad,0,0,De 45 a 54 años,18.88,19,18.9,19.6,19.7
+Edad,0,0,De 55 a 64 años,16.87,16.3,16.9,16.4,16.4
+Tamaño de municipio,0,0,Menos o igual a 2.000 habitantes,7.27,6.7,7.2,6.0,6.0
+Tamaño de municipio,0,0,2.001 a 10.000 habitantes,14,14.7,15.6,14.5,14.8
+Tamaño de municipio,0,0,10.001 a 50.000 habitantes,26.97,26.7,25.3,26.3,26.0
+Tamaño de municipio,0,0,50.001 a 100.000 habitantes,11.95,11.9,12.0,12.5,12.4
+Tamaño de municipio,0,0,100.001 a 400.000 habitantes,22.26,22.6,22.5,23.0,23.0
+Tamaño de municipio,0,0,400.001 a 1.000.000 habitantes,7.31,7.5,7.6,7.8,7.8
+Tamaño de municipio,0,0,Más de 1.000.000 habitantes,10.24,9.9,9.9,9.8,10.1
+Recuerdo de voto,0,1,PP,13.9,13.9,13.8,12.8,12.4
+Recuerdo de voto,0,1,PSOE,26.32,27,27,25.3,26.1
+Recuerdo de voto,0,1,Ciudadanos,5.05,5,5.5,7,8.8
+Recuerdo de voto,0,1,VOX,6.49,7.5,6,6.7,6.2
+Recuerdo de voto,0,1,Unidas Podemos,8.4,8,7.7,7.3,7.8
+Recuerdo de voto,0,1,No votó,15.33,15.8,14.8,11.5,11.9
+Estudios,1,0,Sin estudios,4.44,7.1,6,1.5,1.5
+Estudios,1,0,Primaria,16.46,14.2,12.8,8.5,7
+Estudios,1,0,Secundaria (1ª),21.41,23.3,23.2,12.8,13.3
+Estudios,1,0,Secundaria (2ª),13.93,13,14,13.7,12.1
+Estudios,1,0,F.P.,18.54,19.6,20.9,22.1,20.9
+Estudios,1,0,Superiores,25.13,22.6,22.8,40.6,44.8
+Religión,0,0,Católico/a practicante,20.45,20.4,19.5,19.5,17.6
+Religión,0,0,Católico/a no practicante,46.67,46.6,47.3,41.7,44
+Religión,0,0,Creyente de otra religión,1.67,2.9,2.6,1.8,1.7
+Religión,0,0,Agnóstico/a,7.1,6.9,7.1,11.1,10.7
+Religión,0,0,"Indiferente, no creyente",10.62,9.2,9.6,11.5,11.7
+Religión,0,0,Ateo/a,12.56,12.2,12.6,13.5,13.1
+Estado civil,0,0,Casado/a,54.42,52.6,54.2,56,57.3
+Estado civil,0,0,Soltero/a,32.06,31.2,31.4,30.6,30
+Estado civil,0,0,Viudo/a,6.49,7.4,7.2,6.2,6
+Estado civil,0,0,Separado/a,2.42,2.7,2.4,1.6,1.8
+Estado civil,0,0,Divorciado/a,4.51,5.7,4.5,5.1,4.4
+Actividad,0,1,Trabaja,47.8,48,47,51.1,52.7
+Actividad,0,1,Jubilado/a o pensionista (anteriormente ha trabajado),24.41,25.8,24.7,24.5,23.3
+Actividad,0,1,Pensionista (anteriormente no ha trabajado),3.35,3.3,2.7,1.6,2.5
+Actividad,0,1,Parado/a y ha trabajado antes,13.28,12.3,13.8,12.1,11.6
+Actividad,0,1,Parado/a y busca su primer empleo,0.31,0.4,0.7,0.2,0.4
+Actividad,0,1,Estudiante,4.34,4.3,4.9,5.3,4.5
+Actividad,0,1,Trabajo doméstico no remunerado,5.74,5,5.4,3.4,3.3
+Actividad,0,1,Otra situación,0.79,0.9,0.6,1.4,1.3
+Clase (subjetiva),0,0,Clase media alta,3.99,3.7,4,11.3,11.5
+Clase (subjetiva),0,0,Clase media,45.82,45,44.8,45.3,43.8
+Clase (subjetiva),0,0,Clase media-baja,20.72,17.3,17.6,22.7,23.3
+Clase (subjetiva),0,0,Clase trabajadora,20.18,20.9,21.8,10.4,9.5
+Clase (subjetiva),0,0,Clase baja,4.2,6.9,6.1,6.3,6.2
+Ocupación,1,1,Directores/as y gerentes,5.26,4.5,4.8,8.8,8
+Ocupación,1,1,Profesionales científicos/as e intelectuales,10.07,7.8,8.4,15.1,16.4
+Ocupación,1,1,Técnicos/as y profesionales de nivel medio,18.16,17.9,16.6,24,26.1
+Ocupación,1,1,Personal de apoyo administrativo,7.92,7.8,9.6,11.8,10.5
+Ocupación,1,1,Trabajadores/as de los servicios y vendedores/as de comercios y mercados,17.04,17.8,17.8,14.3,14
+Ocupación,1,1,"Agricultores/as y trabajadores/as cualificados/as agropecuarios/as, forestales y pesqueros/as",5.91,6.3,6,3.1,3
+Ocupación,1,1,"Oficiales/as, operarios/as, artesanos/as de artes mecánicas y de otros oficios",13.04,11.9,12.6,6.6,7.9
+Ocupación,1,1,Operadores/as de instalaciones y máquinas y ensambladores/as,3.65,4.3,3.4,3.4,3.4
+Ocupación,1,1,Ocupaciones elementales,15.26,17.2,16.2,8,6
+Ocupación,1,1,Ocupaciones militares y cuerpos policiales,1.57,1.5,1.5,1.2,1.4
+Escala ideológica,1,1,Izq. (1-4),44.25,42,40.9,38.9,41
+Escala ideológica,1,1,Centro (5-6),25.23,26.5,28,40.9,40
+Escala ideológica,1,1,Der. (7-10),15.3,16.4,15.6,16.6,14.1
